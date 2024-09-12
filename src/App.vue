@@ -1,19 +1,27 @@
 <template>
   <v-app>
-    <v-main>
-      <HelloWorld/>
+    <AppBar/>
+    <v-main>      
+      <NavigationDrawer/>
+      <ChampionshipBody/>
+     
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppBar from './components/AppBar/AppBar.vue'
+import NavigationDrawer from './components/NavigationDrawer/NavigationDrawer.vue'
+import ChampionshipBody from './components/ChampionshipBody/ChampionshipBody.vue'
+
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    AppBar,
+    NavigationDrawer,
+    ChampionshipBody
   },
 
   data: () => ({
