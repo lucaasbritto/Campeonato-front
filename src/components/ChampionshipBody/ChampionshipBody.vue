@@ -1,10 +1,10 @@
 <template>
     <v-container>
       <v-row>
-        <v-col cols="12" md="8">
+        <v-col cols="12" md="9">
           <TableCompetition />
         </v-col>
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="3">
           <MatchTeams />
         </v-col>
         <v-col cols="12" md="12">

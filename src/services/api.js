@@ -13,3 +13,8 @@ export function getTeams() {
   return apiClient.get('/teams');
 }
 
+// Buscar Classificação
+export function getClassification() {
+  return apiClient.get('/classification');
+}
+

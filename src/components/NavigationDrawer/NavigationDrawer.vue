@@ -51,7 +51,13 @@ export default {
       getTeams()
         .then((response) => {
           this.teams = response.data.teams;
-          console.log(this.teams);
+          this.teams.forEach(team => {
+            if (team.shortName === 'Mineiro') {
+              team.shortName = 'Atlético Mineiro';
+            } else if (team.shortName === 'Paranaense') {
+              team.shortName = 'Athletico Paranaense';
+            }
+          });          
         })
         .catch((error) => {
           this.error = 'Erro ao buscar os times';
