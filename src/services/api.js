@@ -18,3 +18,8 @@ export function getClassification() {
   return apiClient.get('/classification');
 }
 
+// Buscar Jogos
+export function getMatches() {
+  return apiClient.get('/matches');
+}
+
