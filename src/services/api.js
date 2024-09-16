@@ -23,3 +23,8 @@ export function getMatches() {
   return apiClient.get('/matches');
 }
 
+// Buscar Artilheiro
+export function getTopScorers() {
+  return apiClient.get('/topScorers');
+}
+
