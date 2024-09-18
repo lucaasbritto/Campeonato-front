@@ -48,9 +48,9 @@
         loading: true,
         error: null,
         headers: [
-          { title: 'Time da Casa', value: 'homeTeam.name' },
+          { title: 'Time da Casa', value: 'homeTeam.shortName' },
           { title: 'Placar', value: 'score.fullTime' },
-          { title: 'Time Visitante', value: 'awayTeam.name' }
+          { title: 'Time Visitante', value: 'awayTeam.shortName' }
         ]
       };
     },
@@ -76,6 +76,9 @@
                 this.matchDay = response.data.original.matchDay; //Armazena ultima rodada
                 this.allMatches = response.data.original.allMatches; //Armazena todos os jogos            
                 this.currentMatchday = this.matchDay[0].matchday; // Numero da rodada
+
+                this.$store.dispatch('updateAllMatches', this.allMatches);
+                this.$store.dispatch('updateCurrentMatchday', this.currentMatchday);
             
             })
             .catch(error => {
