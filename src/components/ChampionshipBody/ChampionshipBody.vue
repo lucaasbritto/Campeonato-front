@@ -1,29 +1,47 @@
 <template>
-    <v-container>
-      <v-row>
-        <v-col cols="12" md="9">
+  <v-container>
+    <v-row>
+      <v-col cols="10" offset="1">
+        <v-tabs v-model="activeTab" background-color="primary" dark>
+          <v-tab value="classificacao">Classificação</v-tab>
+          <v-tab value="partidas">Partidas</v-tab>
+          <v-tab value="artilharia">Artilharia</v-tab>
+        </v-tabs>
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col cols="10" offset="1">
+        <div v-show="activeTab === 'classificacao'">
           <TableCompetition />
-        </v-col>
-        <v-col cols="12" md="3">
+        </div>        
+        
+        <div v-show="activeTab === 'partidas'">
           <MatchTeams />
-        </v-col>
-        <v-col cols="12" md="12">
+        </div>
+                
+        <div v-show="activeTab === 'artilharia'">
           <GoalPlayers />
-        </v-col>
-      </v-row>
-    </v-container>
-  </template>
-  
-  <script>
-  import TableCompetition from '../TableCompetition/TableCompetition.vue';
-  import MatchTeams from '../MatchTeams/MatchTeams.vue';
-  import GoalPlayers from '../GoalPlayers/GoalPlayers.vue';
-  
-  export default {
-    components: {
-        TableCompetition,
-        MatchTeams,
-        GoalPlayers,
-    }
-  };
-  </script>
+        </div>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
+
+<script>
+import TableCompetition from '../TableCompetition/TableCompetition.vue';
+import MatchTeams from '../MatchTeams/MatchTeams.vue';
+import GoalPlayers from '../GoalPlayers/GoalPlayers.vue';
+
+export default {
+  components: {
+    TableCompetition,
+    MatchTeams,
+    GoalPlayers,
+  },
+  data() {
+    return {
+      activeTab: 'classificacao',
+    };
+  },
+};
+</script>
