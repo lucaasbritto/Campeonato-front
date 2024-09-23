@@ -1,41 +1,39 @@
 <template>
     <v-card>
-      <v-card-title class="text-h6">
+      <v-card-title class="text-h6 title-players">
         Artilheiros
       </v-card-title>
   
       <v-data-table
         :headers="headers"
         :items="topScorers"
-        class="elevation-1"
+        class="table-players"
         density="compact"
         :items-per-page="20"
         hide-default-footer
+        :loading="loading"
+        loading-text="Carregando os Artilheiros"
       >
         <template v-slot:item="{ item }">
           <tr>
             <td>{{ item.position }}</td>
             <td>{{ item.player.name }}</td>
             <td>
-              <img :src="item.team.crest" alt="Escudo" style="width: 20px; height: 20px; margin-right: 8px;" />
+              <img :src="item.team.crest" alt="Escudo" class="escudo-players"/>
               {{ item.team.name }}
             </td>
             <td>{{ item.goals }}</td>
             <td>{{ item.assists || 0 }}</td>
-          <td>{{ item.penalties || 0 }}</td>
+            <td>{{ item.penalties || 0 }}</td>
             <td>{{ item.playedMatches }}</td>
           </tr>
         </template>
       </v-data-table>
-  
-      <v-alert v-if="error" type="error">
-        {{ error }}
-      </v-alert>
     </v-card>
-  </template>
+</template>
   
-  <script>
-  import { getTopScorers } from '@/services/api'; // Certifique-se de que essa função está definida no seu arquivo api.js
+<script>
+  import { getTopScorers } from '@/services/api';
   
   export default {
     data() {
@@ -63,9 +61,7 @@
       fetchTopScorers() {
         getTopScorers()
           .then(response => {
-            const scorers = response.data.scorers; // Adapte o caminho de acesso conforme a estrutura da resposta
-           
-            // Adiciona a colocação
+            const scorers = response.data.scorers;
             this.topScorers = this.addPositions(scorers);
           })
           .catch(error => {
@@ -103,4 +99,22 @@
       }
     }
   };
-  </script>
+</script>
+
+<style scoped>
+.title-players{
+  background: #10502f; 
+  color: white; 
+  font-size: 0.8rem;
+}
+
+.table-players{
+  font-size: 0.8rem;
+}
+
+.escudo-players{
+  width: 20px; 
+  height: 20px; 
+  margin-right: 8px;
+}
+</style>

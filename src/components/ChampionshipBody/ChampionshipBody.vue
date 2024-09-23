@@ -1,11 +1,11 @@
 <template>
-  <v-container>
-    <v-row>
+  <div class="containerChampionshipBody">
+    <v-row class="tab-championship">
       <v-col cols="10" offset="1">
-        <v-tabs v-model="activeTab" background-color="primary" dark>
-          <v-tab value="classificacao">Classificação</v-tab>
-          <v-tab value="partidas">Partidas</v-tab>
-          <v-tab value="artilharia">Artilharia</v-tab>
+        <v-tabs v-model="activeTab">
+          <v-tab class="tabsActives" value="classificacao">Classificação</v-tab>
+          <v-tab class="tabsActives" value="partidas">Partidas</v-tab>
+          <v-tab class="tabsActives" value="artilharia">Artilharia</v-tab>
         </v-tabs>
       </v-col>
     </v-row>
@@ -24,7 +24,7 @@
         </div>
       </v-col>
     </v-row>
-  </v-container>
+  </div>
 </template>
 
 <script>
@@ -45,3 +45,24 @@ export default {
   },
 };
 </script>
+
+<style>
+.containerChampionshipBody{
+  min-height: 100vh ;
+  background: url('../../assets/fundo_estadio.jpg');
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
+}
+
+.tab-championship{
+  margin-bottom: -36px;
+  color: white;
+}
+
+
+.tabsActives{
+  background: #10502f;
+  font-size: 0.8rem;
+}
+</style>
