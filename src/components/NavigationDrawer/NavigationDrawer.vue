@@ -24,6 +24,7 @@
                     :src="team.crest"
                     contain
                     max-height="80"
+                    class="team-col"
                     ></v-img>
                 </v-col>
             </v-row>
@@ -106,5 +107,9 @@ export default {
 .navigationTitle{
     font-size: 0.8rem !important; 
     background: white;
+}
+
+.team-col {
+    cursor: pointer;
 }
 </style>
